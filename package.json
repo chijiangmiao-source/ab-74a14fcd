@@ -1,0 +1,16 @@
+{
+  "name": "avionics-key-rotation-review",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "航电双模块密钥轮换：Worker 穷尽消息延迟 / 断电 / 恢复交织的安全复核工具",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "test": "node --test test/"
+  },
+  "devDependencies": {
+    "vite": "^5.4.10"
+  }
+}

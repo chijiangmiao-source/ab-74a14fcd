@@ -13,3 +13,7 @@ __pycache__/
 .yarn-cache/
 *.pyc
 *.pyo
+
+# 构建产物与本地缓存
+dist/
+.npm-cache/

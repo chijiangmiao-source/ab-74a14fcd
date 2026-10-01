@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>航电密钥轮换 · 双模块共同确认复核</title>
+  </head>
+  <body>
+    <header class="topbar">
+      <h1>航电密钥轮换演练 · 双模块共同确认复核</h1>
+      <p class="subtitle">
+        在 Worker 中穷尽保持控制端顺序的消息投递、三窗口断电与落盘重放恢复交织，
+        规范状态取「持久纪元 · 准备密钥 · 已确认发布集合」，等价前缀自动合并。
+      </p>
+    </header>
+
+    <main>
+      <section class="card">
+        <h2>1 · 纪元密钥指纹</h2>
+        <div class="grid2">
+          <label>旧密钥指纹
+            <input id="oldFp" data-field="oldFp" placeholder="例如 KEY-EPOCH-OLD" />
+          </label>
+          <label>新密钥指纹
+            <input id="newFp" data-field="newFp" placeholder="例如 KEY-EPOCH-NEW" />
+          </label>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>2 · 两枚安全模块的持久初态</h2>
+        <div id="modules" class="grid2"></div>
+      </section>
+
+      <section class="card">
+        <h2>3 · 控制端指令序列（按发起顺序，至多 16 条）</h2>
+        <div class="cmd-toolbar">
+          <button type="button" id="addCmd" class="btn">追加指令</button>
+          <button type="button" id="removeCmd" class="btn btn-ghost">删除末条</button>
+          <span id="cmdCount" class="hint"></span>
+        </div>
+        <div id="commands"></div>
+      </section>
+
+      <section class="card actions">
+        <button type="button" id="reviewBtn" class="btn btn-primary">复核</button>
+        <button type="button" id="clearBtn" class="btn btn-danger">清空草稿与结论</button>
+        <button type="button" id="sampleBtn" class="btn btn-ghost">填入示例</button>
+        <span id="progress" class="hint"></span>
+      </section>
+
+      <section id="errors" class="card card-errors" hidden></section>
+      <section id="result"></section>
+    </main>
+
+    <footer class="footer">
+      穷尽搜索在独立 Worker 内运行 · 仅在浏览器本地计算，不上传任何数据
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
